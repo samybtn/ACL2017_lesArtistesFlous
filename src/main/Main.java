@@ -2,6 +2,8 @@
  * 
  */
 package main;
+import game.*;
+import personage.*;
 
 /**
  * @author bentoune2u
@@ -13,7 +15,14 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Game test = new Game();
+		Hero h = test.getHero();
+		
+		h.print();
+		h.deplacement(1,0);
+		h.print();
+		h.deplacement(1,-5);
+		h.print();
 
 	}
 
