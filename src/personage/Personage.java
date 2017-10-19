@@ -2,7 +2,7 @@
  * 
  */
 package personage;
-
+import game.*;
 /**
  * @author bentoune2u
  *
@@ -17,13 +17,30 @@ public abstract class Personage{
 		this.game=game;
 	}
 	
+
+	public int getX() {			return x;}
+	public void setX(int x) {	this.x = x;}
+	public int getY() {			return y;}
+	public void setY(int y) {	this.y = y;}
+	public Game getGame() {		return game;}
+
+	
+	protected abstract boolean isBlocked();
+
 	public boolean deplacement(int x, int y){
-		if (this.game.isOut(this.x+x,this.y+y)){ return false ;}
+		x = x/(Math.abs(x));
+		y = y/(Math.abs(y));
+		if (Math.abs(y)+Math.abs(x)==0)return false;
+		if (this.game.isOut(this.getX()+x,this.getY()+y)){ return false ;}
+		
 		else{
-		this.x+=x;
-		this.y+=y;
+		this.setX(this.getX()+x);
+		this.setY(this.getY()+y);
+
 		return true;}
 	}
 	
+	
+	abstract void print();
 
 }

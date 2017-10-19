@@ -13,12 +13,17 @@ public class Game {
 
 	//Le personnage utilise par le joueur
 	private Hero hero;
+	public Hero getHero() {return hero;}
+	public void setHero(Hero hero) {this.hero = hero;}
+
 	
 	/**
 	 * constructeur de Game
 	 */	
+	
+	
 	public Game() {
-		this.hero= new Hero(this);	
+		this.setHero(new Hero(this));	
 	}
 	
 	/**
@@ -27,10 +32,10 @@ public class Game {
 	 * @param y l'ordonnee du personnage
 	 * @return true si les coordonnees sont hors du jeux
 	 */
-	boolean isOut(int x,int y)
+	public boolean isOut(int x,int y)
 	{
 		//labyrinth
-		return true;
+		return false;
 	}
 }
 
