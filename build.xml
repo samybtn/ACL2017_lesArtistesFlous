@@ -1,0 +1,26 @@
+<project name="ACL2017_lesArtistesFlous" basedir="." default="run">
+
+  <target name="compile" depends="clean">
+    <mkdir dir="bin"/>
+    <javac srcdir="src" destdir="bin"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <mkdir dir="dist"/>
+    <jar destfile="dist/Game.jar" basedir="bin">
+      <manifest>
+	       <attribute name="Main-Class" value="main.Main"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar">
+    <java jar="dist/Game.jar" fork="true"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="bin"/>
+    <delete dir="dist"/>
+  </target>
+  
+</project>
