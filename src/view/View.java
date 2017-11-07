@@ -1,7 +1,9 @@
 /**
  *
  */
-package game;
+package view;
+
+import model.Game;
 
 /**
  * @author bentoune2u

@@ -3,8 +3,10 @@
  */
 package main;
 
-import game.*;
-import personage.*;
+import model.Game;
+import model.Hero;
+import view.View;
+import controller.Controller;
 
 /**
  * @author bentoune2u

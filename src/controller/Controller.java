@@ -1,4 +1,7 @@
-package game;
+package controller;
+
+import model.Game;
+import view.View;
 
 import java.util.Scanner;
 

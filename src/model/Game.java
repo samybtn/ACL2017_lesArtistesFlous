@@ -1,9 +1,9 @@
 /**
  *
  */
-package game;
+package model;
 
-import personage.Hero;
+import controller.Cmd;
 
 /**
  * @author bentoune2u

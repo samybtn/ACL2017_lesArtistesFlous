@@ -1,4 +1,4 @@
-package game;
+package controller;
 
 /**
  * Representation des commandes entrees par l'utilisateur
