@@ -32,6 +32,17 @@ public class Controller {
 	private View view;
 
 	/**
+	* Commande actuelle. Entree par l'utilisateur, permet de faire evoluer
+	* le modele
+	*
+	* @see Cmd
+	*
+	* @see Cmd#getCommand()
+	* @see Cmd#setCommand(Cmd)
+	*/
+	private Cmd command;
+
+	/**
 	* Constructeur du controleur
 	*
 	* @param game
@@ -47,44 +58,46 @@ public class Controller {
 		this.view = view;
 	}
 
-	public boolean getUserCommand() {
+	/**
+	* Recupere l'entree de l'utilisateur et agit sur l'environnement en consequence
+	*/
+	public void getUserCommand() {
 		System.out.println("Choisir le deplacement : \n");
 		Scanner sc1= new Scanner(System.in);
 		String str1 = sc1.nextLine();
-		switch (str1) {
-		//*-1 en fonction de l'origine de l'interface graphique future
-		case "z" :
-			//Haut
-			game.getHero().deplacement(0, 1);
-			break;
-		case "s" :
-			//Bas
-			game.getHero().deplacement(0, -1);
-			break;
-		case "q" :
-			//Gauche
-			game.getHero().deplacement(-1, 0);
-			break;
-		case "d" :
-			//Droite
-			game.getHero().deplacement(1, 0);
-			break;
-		case "e" :
-			System.out.println("C'est fini ! \n");
-			System.out.println("Position finale : \n");
-			return true;
-		default :
-			System.out.println("Mauvaise commande, deplacement par defaut : haut");
-			game.getHero().deplacement(0, 1);
-		}
-		return false;
+		this.command = this.inputToCommand(str1);
 	}
 
+	/**
+	* Convertit l'entree texte de l'utilisateur en commande
+	*
+	* @param input
+	* 						L'entree texte de l'utilisateur
+	* @return La commande correspondante
+	*
+	* @see Cmd
+	*/
+	public Cmd inputToCommand(String input) {
+		switch (input) {
+		//*-1 en fonction de l'origine de l'interface graphique future
+		case "z" : return Cmd.UP;
+		case "s" : return Cmd.DOWN;
+		case "q" : return Cmd.LEFT;
+		case "d" : return Cmd.RIGHT;
+		case "e" : return Cmd.END;
+		default : return Cmd.IDLE;
+		}
+	}
+
+	/**
+	* Lance la partie
+	*/
 	public void run() {
 		boolean fin = false;
 		while (!fin) {
-			fin = getUserCommand();
-			view.print();
+			this.getUserCommand();
+			this.game.evolve(this.command);
+			this.view.print();
 		}
 	}
 
@@ -130,5 +143,27 @@ public class Controller {
 	*/
 	public void setView(View view) {
 		this.view = view;
+	}
+
+	/**
+	* Retourne la commande actuelle
+	*
+	* @return La commande actuelle
+	*
+	* @see Cmd
+	*/
+	public Cmd getCommand() {
+		return command;
+	}
+
+	/**
+	* Met a jour la commande actuelle
+	*
+	* @param command
+	* 						La nouvelle commande actuelle
+	* @see Cmd
+	*/
+	public void setCommand(Cmd command) {
+		this.command = command;
 	}
 }

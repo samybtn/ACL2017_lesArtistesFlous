@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package game;
 
@@ -16,16 +16,16 @@ public class Game {
 	public Hero getHero() {return hero;}
 	public void setHero(Hero hero) {this.hero = hero;}
 
-	
+
 	/**
 	 * constructeur de Game
-	 */	
-	
-	
+	 */
+
+
 	public Game() {
-		this.setHero(new Hero(this));	
+		this.setHero(new Hero(this));
 	}
-	
+
 	/**
 	 * Methode de test isOut
 	 * @param x l'abscisse du personnage
@@ -37,5 +37,25 @@ public class Game {
 		//labyrinth
 		return false;
 	}
-}
 
+	/**
+	* Fait evoluer l'etat du jeu en fonction de la commande actuelle de l'utilisateur
+	*
+	* @param command
+	* 						La commande actuelle de l'utilisateur
+	*
+	* @see Cmd
+	*/
+	public void evolve(Cmd command) {
+		switch(command) {
+    case UP :    this.hero.deplacement(0, 1);  break;
+    case DOWN :  this.hero.deplacement(0, -1); break;
+    case LEFT :  this.hero.deplacement(-1, 0); break;
+    case RIGHT : this.hero.deplacement(1, 0);  break;
+		case END :
+			System.out.println("C'est fini ! \n");
+			System.out.println("Position finale : \n");
+			break;
+		}
+	}
+}
