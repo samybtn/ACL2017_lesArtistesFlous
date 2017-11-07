@@ -93,18 +93,6 @@ public class Controller {
 	}
 
 	/**
-	* Lance la partie
-	*/
-	public void run() {
-		boolean fin = false;
-		while (!fin) {
-			this.getUserCommand();
-			fin = this.game.evolve(this.command);
-			this.view.print();
-		}
-	}
-
-	/**
 	* Retourne le modele
 	*
 	* @return Le modele

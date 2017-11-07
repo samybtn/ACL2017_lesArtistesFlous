@@ -3,6 +3,10 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
 import model.Game;
 
 /**
@@ -11,6 +15,11 @@ import model.Game;
  */
 public class View {
 
+	/**
+	 * la taille des cases
+	 */
+	protected static final int WIDTH = 100;
+	protected static final int HEIGHT = 100;
   private Game game;
 
   /**
@@ -23,7 +32,20 @@ public class View {
     this.game = game;
   }
 
-  public void print() {
-    this.game.getHero().print();
-  }
+	/**
+	 * methode  redefinie de Afficheur retourne une image du jeu
+	 */
+	public void draw(BufferedImage im) {
+		Graphics2D crayon = (Graphics2D) im.getGraphics();
+		crayon.setColor(Color.blue);
+		crayon.fillOval(this.game.getHero().getX(), this.game.getHero().getY(), 10,10);
+	}
+
+	public int getWidth() {
+		return WIDTH;
+	}
+
+	public int getHeight() {
+		return HEIGHT;
+	}
 }

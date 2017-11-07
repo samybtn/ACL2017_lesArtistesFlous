@@ -6,6 +6,7 @@ package main;
 import model.Game;
 import model.Hero;
 import view.View;
+import view.GameEngineGraphical;
 import controller.Controller;
 
 /**
@@ -16,7 +17,7 @@ public class Main {
 
 
 	//methode interaction pour le sprint 1
-	public static void interaction(Hero h, Controller controller) {
+	public static void interaction(Hero h, GameEngineGraphical engine) throws InterruptedException {
 		boolean fin = false;
 		System.out.println("****les LabyFlous****\n");
 		System.out.println("Deplacement : \n haut : z \n bas : s \n gauche : q \n droite : d\n");
@@ -25,18 +26,24 @@ public class Main {
 		h.print();
 		System.out.println("\n");
 
-		controller.run();
+		engine.run();
 	}
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+
+		// creation du jeu particulier et de son afficheur
 		Game game = new Game();
-		View view = new View(game);
-		Controller controller = new Controller(game, view);
+		View painter = new View(game);
+		Controller controller = new Controller(game, painter);
+
+		// classe qui lance le moteur de jeu generique
+		GameEngineGraphical engine = new GameEngineGraphical(game, painter, controller);
+
 		Hero h = game.getHero();
-		interaction(h, controller);
+		interaction(h, engine);
 	}
 
 }
