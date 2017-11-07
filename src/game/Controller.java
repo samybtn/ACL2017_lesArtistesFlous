@@ -96,7 +96,7 @@ public class Controller {
 		boolean fin = false;
 		while (!fin) {
 			this.getUserCommand();
-			this.game.evolve(this.command);
+			fin = this.game.evolve(this.command);
 			this.view.print();
 		}
 	}

@@ -43,10 +43,11 @@ public class Game {
 	*
 	* @param command
 	* 						La commande actuelle de l'utilisateur
+	* @return Vrai si la partie est finie, faux sinon
 	*
 	* @see Cmd
 	*/
-	public void evolve(Cmd command) {
+	public boolean evolve(Cmd command) {
 		switch(command) {
     case UP :    this.hero.deplacement(0, 1);  break;
     case DOWN :  this.hero.deplacement(0, -1); break;
@@ -55,7 +56,8 @@ public class Game {
 		case END :
 			System.out.println("C'est fini ! \n");
 			System.out.println("Position finale : \n");
-			break;
+			return true;
 		}
+		return false;
 	}
 }
