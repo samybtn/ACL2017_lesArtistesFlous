@@ -18,9 +18,17 @@
     <java jar="dist/Game.jar" fork="true"/>
   </target>
 
+  <target name="doc">
+    <javadoc sourcepath="src" packagenames="personage,game,main" destdir="doc"/>
+  </target>
+
   <target name="clean">
     <delete dir="bin"/>
     <delete dir="dist"/>
   </target>
-  
+
+  <target name="clean_doc">
+    <delete dir="doc"/>
+  </target>
+
 </project>
