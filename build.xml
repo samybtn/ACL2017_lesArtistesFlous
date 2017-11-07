@@ -19,7 +19,7 @@
   </target>
 
   <target name="doc">
-    <javadoc sourcepath="src" packagenames="personage,game,main" destdir="doc"/>
+    <javadoc sourcepath="src" packagenames="model,view,controller,main" destdir="doc"/>
   </target>
 
   <target name="clean">
