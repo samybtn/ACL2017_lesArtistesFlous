@@ -1,22 +1,22 @@
 /**
- * 
+ *
  */
-package personage;
-import game.*;
+package model;
+
 /**
  * @author bentoune2u
  *
  */
 public abstract class Personage{
-	
+
 	private int x=0;
 	private int y=0;
 	private Game game;
-	
+
 	public Personage(Game game){
 		this.game=game;
 	}
-	
+
 
 	public int getX() {			return x;}
 	public void setX(int x) {	this.x = x;}
@@ -24,23 +24,34 @@ public abstract class Personage{
 	public void setY(int y) {	this.y = y;}
 	public Game getGame() {		return game;}
 
-	
+
 	protected abstract boolean isBlocked();
 
 	public boolean deplacement(int x, int y){
+		//Pour forcer le deplacement d'un seul pixel a la fois
 		x = x/(Math.max(Math.abs(x),1));
 		y = y/(Math.max(Math.abs(y),1));
-		if (Math.abs(y)+Math.abs(x)==0)return false;
-		if (this.game.isOut(this.getX()+x,this.getY()+y)){ return false ;}
-		
-		else{
-		this.setX(this.getX()+x);
-		this.setY(this.getY()+y);
-
-		return true;}
+		if (Math.abs(y)+Math.abs(x)==0){
+			return false;
+		}
+		if (this.game.isOut(this.getX()+x,this.getY()+y)){	
+			if (x<0) {
+				this.setX(0);
+			}
+			if (y<0) {
+				this.setY(0);
+			}		
+			return false ;
+		}
+		else
+		{
+			this.setX(this.getX()+x);
+			this.setY(this.getY()+y);
+			return true;
+		}
 	}
-	
-	
+
+
 	abstract void print();
 
 }
