@@ -2,6 +2,7 @@ package view;
 
 import model.Game;
 import controller.Controller;
+import controller.Cmd;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -61,9 +62,9 @@ public class GameEngineGraphical {
 		// boucle de game
 		while (!fin) {
 			// demande controle utilisateur
-			this.gameController.getUserCommand();
+			Cmd c = this.gameController.getCommand();
 			// fait evoluer le game
-			fin = this.game.evolve(this.gameController.getCommand());
+			fin = this.game.evolve(c);
 			// affiche le game
 			this.gui.paint();
 			// met en attente

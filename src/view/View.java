@@ -5,6 +5,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import model.Game;
@@ -18,8 +19,8 @@ public class View {
 	/**
 	 * la taille des cases
 	 */
-	protected static final int WIDTH = 100;
-	protected static final int HEIGHT = 100;
+	protected static final int WIDTH = 600;
+	protected static final int HEIGHT = 600;
   private Game game;
 
   /**
@@ -37,9 +38,16 @@ public class View {
 	 */
 	public void draw(BufferedImage im) {
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
-		System.out.println("***");
 		crayon.setColor(Color.blue);
 		crayon.fillOval(this.game.getHero().getX(), this.game.getHero().getY(), 10,10);
+	}
+	
+	public void drawImage() {
+		Image img = this.getGame().getHero().getImg();
+		
+		
+		
+		
 	}
 
 	public int getWidth() {
@@ -49,4 +57,9 @@ public class View {
 	public int getHeight() {
 		return HEIGHT;
 	}
+	
+	public Game getGame() {
+		return this.game;
+	}
+	
 }

@@ -6,6 +6,8 @@ package view;
  */
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.PaintContext;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -27,6 +29,7 @@ public class DrawingPanel extends JPanel {
 	 */
 	private BufferedImage nextImage;
 
+	
 	/**
 	 * image en cours est l'image entrain d'etre affichee
 	 */
@@ -67,7 +70,7 @@ public class DrawingPanel extends JPanel {
 	 */
 	public void drawGame() {
 		// generer la nouvelle image
-		this.painter.draw(this.nextImage);
+		/*this.painter.draw(this.nextImage);
 
 		// inverses les images doublebuffereing
 		BufferedImage temp = this.currentImage;
@@ -77,7 +80,7 @@ public class DrawingPanel extends JPanel {
 		this.nextImage = temp;
 		this.nextImage.getGraphics()
 				.fillRect(0, 0, this.width, this.height);
-		// met a jour l'image a afficher sur le panel
+		// met a jour l'image a afficher sur le panel*/
 		this.repaint();
 	}
 
@@ -89,8 +92,14 @@ public class DrawingPanel extends JPanel {
 	 */
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(this.currentImage, 0, 0, getWidth(), getHeight(), 0, 0,
+	
+		int x = this.painter.getGame().getHero().getX();
+		int y = this.painter.getGame().getHero().getY();
+		g.drawImage(this.painter.getGame().getHero().getImg()/*this.currentImage*/, x, y, 75/*getWidth()*/, 75/*getHeight()*/, 0, 0,
 				getWidth(), getHeight(), null);
 	}
+	
+	
+	
 
 }

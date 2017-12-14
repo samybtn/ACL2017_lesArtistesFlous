@@ -28,27 +28,16 @@ public abstract class Personage{
 	protected abstract boolean isBlocked();
 
 	public boolean deplacement(int x, int y){
-		//Pour forcer le deplacement d'un seul pixel a la fois
-		x = x/(Math.max(Math.abs(x),1));
-		y = y/(Math.max(Math.abs(y),1));
-		if (Math.abs(y)+Math.abs(x)==0){
-			return false;
-		}
-		if (this.game.isOut(this.getX()+x,this.getY()+y)){	
-			if (x<0) {
-				this.setX(0);
-			}
-			if (y<0) {
-				this.setY(0);
-			}		
-			return false ;
-		}
-		else
-		{
-			this.setX(this.getX()+x);
-			this.setY(this.getY()+y);
-			return true;
-		}
+		x = (x/(Math.max(Math.abs(x),1)))*2;
+		y = (y/(Math.max(Math.abs(y),1)))*2;
+		if (Math.abs(y)+Math.abs(x)==0)return false;
+		if (this.game.isOut(this.getX()+x,this.getY()+y)){ return false ;}
+
+		else{
+		this.setX(this.getX()+x);
+		this.setY(this.getY()+y);
+
+		return true;}
 	}
 
 

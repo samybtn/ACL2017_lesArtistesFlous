@@ -3,6 +3,8 @@ package controller;
 import model.Game;
 import view.View;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Scanner;
 
 /**
@@ -12,7 +14,7 @@ import java.util.Scanner;
  * @author loicmarie
  * @version 1.0
  */
-public class Controller {
+public class Controller implements KeyListener {
 
 	/**
 	* Modele. Represente l'etat du jeu a un instant donne
@@ -59,17 +61,18 @@ public class Controller {
 	public Controller(Game game, View view) {
 		this.game = game;
 		this.view = view;
+		this.command = Cmd.IDLE;
 	}
 
-	/**
-	* Recupere l'entree de l'utilisateur et agit sur l'environnement en consequence
-	*/
-	public void getUserCommand() {
-		System.out.println("Choisir le deplacement : \n");
-		Scanner sc1= new Scanner(System.in);
-		String str1 = sc1.nextLine();
-		this.command = this.inputToCommand(str1);
-	}
+	// /**
+	// * Recupere l'entree de l'utilisateur et agit sur l'environnement en consequence
+	// */
+	// public void getUserCommand() {
+	// 	System.out.println("Choisir le deplacement : \n");
+	// 	Scanner sc1= new Scanner(System.in);
+	// 	String str1 = sc1.nextLine();
+	// 	this.command = this.inputToCommand(str1);
+	// }
 
 	/**
 	* Convertit l'entree texte de l'utilisateur en commande
@@ -80,14 +83,17 @@ public class Controller {
 	*
 	* @see Cmd
 	*/
-	public Cmd inputToCommand(String input) {
+	public Cmd inputToCommand(char input) {
 		switch (input) {
+		
 		//*-1 en fonction de l'origine de l'interface graphique future
-		case "z" : return Cmd.UP;
-		case "s" : return Cmd.DOWN;
-		case "q" : return Cmd.LEFT;
-		case "d" : return Cmd.RIGHT;
-		case "e" : return Cmd.END;
+		case 'z' : return Cmd.DOWN;
+		case 's' : 
+			
+			return Cmd.UP;		
+		case 'q' : return Cmd.LEFT;
+		case 'd' : return Cmd.RIGHT;
+		case 'e' : return Cmd.END;
 		default : return Cmd.IDLE;
 		}
 	}
@@ -157,4 +163,26 @@ public class Controller {
 	public void setCommand(Cmd command) {
 		this.command = command;
 	}
+
+	@Override
+	/**
+	 * met a jour les commandes en fonctions des touches appuyees
+	 */
+	public void keyPressed(KeyEvent e) {
+		this.command = this.inputToCommand(e.getKeyChar());
+	}
+
+	@Override
+	/**
+	 * met a jour les commandes quand le joueur relache une touche
+	 */
+	public void keyReleased(KeyEvent e) {
+		this.command = Cmd.IDLE;
+	}
+
+	@Override
+	/**
+	 * ne fait rien
+	 */
+	public void keyTyped(KeyEvent e) {}
 }

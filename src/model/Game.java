@@ -34,11 +34,7 @@ public class Game {
 	 */
 	public boolean isOut(int x,int y)
 	{
-		if ((x<0)||(y<0)) {
-			return true;
-		}
-		//need to be changed with labyrinth dimensions
-		
+		//labyrinth
 		return false;
 	}
 
