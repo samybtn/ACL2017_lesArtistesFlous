@@ -13,8 +13,11 @@ public class Game {
 
 	//Le personnage utilise par le joueur
 	private Hero hero;
+	private Monster monster;
 	public Hero getHero() {return hero;}
 	public void setHero(Hero hero) {this.hero = hero;}
+	public Monster getMonster() {return monster;}
+	public void setMonster(Monster monster) {this.monster = monster;}
 
 
 	/**
@@ -24,6 +27,7 @@ public class Game {
 
 	public Game() {
 		this.setHero(new Hero(this));
+		this.setMonster(new Monster(this));
 	}
 
 	/**

@@ -5,6 +5,7 @@ package main;
 
 import model.Game;
 import model.Hero;
+import model.Monster;
 import view.View;
 import view.GameEngineGraphical;
 import controller.Controller;
@@ -44,6 +45,8 @@ public class Main {
 
 		Hero h = game.getHero();
 		interaction(h, engine);
+	//	Monster m = game.getMonster();
+	//	interaction(m, engine);
 	}
 
 }

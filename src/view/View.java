@@ -19,6 +19,7 @@ public class View {
 	/**
 	 * la taille des cases
 	 */
+	public static final int SCALE=3;
 	protected static final int WIDTH = 600;
 	protected static final int HEIGHT = 600;
   private Game game;
@@ -37,9 +38,9 @@ public class View {
 	 * methode  redefinie de Afficheur retourne une image du jeu
 	 */
 	public void draw(BufferedImage im) {
-		Graphics2D crayon = (Graphics2D) im.getGraphics();
-		crayon.setColor(Color.blue);
-		crayon.fillOval(this.game.getHero().getX(), this.game.getHero().getY(), 10,10);
+		//Graphics2D crayon = (Graphics2D) im.getGraphics();
+		//crayon.setColor(Color.blue);
+		//crayon.fillOval(this.game.getHero().getX(), this.game.getHero().getY(), 10,10);
 	}
 	
 	public void drawImage() {

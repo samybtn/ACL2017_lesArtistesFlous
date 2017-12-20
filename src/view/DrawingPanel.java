@@ -6,6 +6,7 @@ package view;
  */
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.PaintContext;
 import java.awt.image.BufferedImage;
@@ -81,7 +82,7 @@ public class DrawingPanel extends JPanel {
 		this.nextImage.getGraphics()
 				.fillRect(0, 0, this.width, this.height);
 		// met a jour l'image a afficher sur le panel*/
-		this.repaint();
+	//	this.repaint();
 	}
 
 	/**
@@ -90,13 +91,15 @@ public class DrawingPanel extends JPanel {
 	 * @param g
 	 *            graphics pour dessiner
 	 */
-	public void paint(Graphics g) {
-		super.paint(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics g2 =  (Graphics2D)g;
 	
 		int x = this.painter.getGame().getHero().getX();
 		int y = this.painter.getGame().getHero().getY();
 		g.drawImage(this.painter.getGame().getHero().getImg()/*this.currentImage*/, x, y, 75/*getWidth()*/, 75/*getHeight()*/, 0, 0,
 				getWidth(), getHeight(), null);
+		this.repaint();
 	}
 	
 	
