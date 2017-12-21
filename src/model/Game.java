@@ -41,7 +41,30 @@ public class Game {
 	public boolean isOut(int x,int y)
 	{
 		//labyrinth
+		//test coordonnées négatives
+		if (x < 0) {			
+			this.getHero().setX(1);		
+		}
+		if (y < 0) {
+			this.getHero().setY(1);
+		}
+		
+		if (x > Labyrinth.getTaille()) {
+			this.getHero().setX(Labyrinth.getTaille());
+		}
+		
+		if (y > Labyrinth.getTaille()) {
+			this.getHero().setY(Labyrinth.getTaille());
+		}
+		
 		return false;
+	}
+	
+	
+	
+	public boolean isBlocked(int x,int y){
+		if(this.getLaby().getMap(x, y).equals("w")){return true;}
+		else return false;
 	}
 
 	/**

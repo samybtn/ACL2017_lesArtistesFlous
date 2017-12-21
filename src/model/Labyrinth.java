@@ -10,12 +10,13 @@ import javax.swing.plaf.synth.SynthStyle;
 public class Labyrinth {
 	
 	private Scanner m;
-	private String Map[] = new String[14];
+	public static  final int taille = 14;
+	private String Map[] = new String[taille];
 	private Image grass,finish, wall;
 
-	public Labyrinth(){
+	public Labyrinth() {
 		
-		ImageIcon img = new ImageIcon(getClass().getResource("/image/texture.jpg"));
+		ImageIcon img = new ImageIcon(getClass().getResource("/image/grass.png"));
 		grass = img.getImage();
 		img = new ImageIcon(getClass().getResource("/image/walls.png"));
 		wall = img.getImage();
@@ -27,7 +28,7 @@ public class Labyrinth {
 		openFile();
 		readFile();
 		CloseFile();
-		}
+	}
 	
 	public Image getGrass(){return grass;}
 	public Image getWall(){return wall;}
@@ -59,8 +60,12 @@ public class Labyrinth {
     	 }
 		
 	}
-      public void CloseFile(){
+     
+    public void CloseFile(){
     	  m.close();
-	
-}
+	}
+    
+    public static int getTaille() {
+    	return taille;
+    }
 }

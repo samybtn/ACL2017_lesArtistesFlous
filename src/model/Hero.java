@@ -20,6 +20,8 @@ public class Hero extends Character {
 		super(game);
 		this.icon_hero = new ImageIcon(getClass().getResource("/image/pacman.png"));
 		this.img = this.icon_hero.getImage();
+		this.x = 1;
+		this.y = 1; 
 	}
 
 	protected boolean isBlocked(){
