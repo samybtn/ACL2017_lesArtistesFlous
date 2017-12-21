@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import model.Game;
 import model.Hero;
+import model.Labyrinth;
 
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementDroite() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		//droite
 		hero.deplacement(1, 0);
@@ -31,7 +32,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementGauche() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		//droite
 		hero.deplacement(1, 0);
@@ -48,7 +49,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementHaut() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		//haut
 		hero.deplacement(0, 1);
@@ -62,7 +63,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementBas() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		//bas
 		hero.deplacement(0, 1);
@@ -80,7 +81,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementXHorsCadre() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		
 		//2 deplacements vers la gauche
@@ -96,7 +97,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementYHorsCadre() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		
 		//2 deplacements vers haut
@@ -113,7 +114,7 @@ public class TestHero {
 	@Test
 	public void testDeplacementDiagonal() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		Hero hero = new Hero(game);
 		
 		//2 deplacements en diagonal de la (droite-bas)
@@ -131,7 +132,7 @@ public class TestHero {
 	@Test
 	public void testIsOutTrue() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		int x = -4;
 		int y = 25;
 		assertTrue(game.isOut(x, y));
@@ -144,7 +145,7 @@ public class TestHero {
 	@Test
 	public void testIsOutFalse() {
 		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		int x = 5;
 		int y = 25;
 		assertFalse(game.isOut(x, y));
@@ -156,7 +157,7 @@ public class TestHero {
 	 */
 	@Test
 	public void testIsOutOrigine() {		
-		Game game = new Game();
+		Game game = new Game(new Labyrinth());
 		int x = 0;
 		int y = 0;
 		assertFalse(game.isOut(x, y));		

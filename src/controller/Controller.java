@@ -1,8 +1,12 @@
 package controller;
 
 import model.Game;
+import model.Hero;
+import model.Labyrinth;
 import view.View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Scanner;
@@ -14,7 +18,7 @@ import java.util.Scanner;
  * @author loicmarie
  * @version 1.0
  */
-public class Controller implements KeyListener {
+public class Controller implements KeyListener, ActionListener {
 
 	/**
 	* Modele. Represente l'etat du jeu a un instant donne
@@ -185,4 +189,16 @@ public class Controller implements KeyListener {
 	 * ne fait rien
 	 */
 	public void keyTyped(KeyEvent e) {}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		Labyrinth m = this.game.getLaby();
+		Hero p = this.game.getHero();
+		///********* fin
+				if(m.getMap(p.getX(), p.getY()).equals("f")){
+					//Message ="Winner";
+				}
+				///
+				//repaint();
+	}
 }

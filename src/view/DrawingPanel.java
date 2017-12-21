@@ -13,6 +13,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import model.Hero;
+import model.Labyrinth;
+
 public class DrawingPanel extends JPanel {
 
 	/**
@@ -95,10 +98,34 @@ public class DrawingPanel extends JPanel {
 		super.paintComponent(g);
 		Graphics g2 =  (Graphics2D)g;
 	
-		int x = this.painter.getGame().getHero().getX();
-		int y = this.painter.getGame().getHero().getY();
-		g.drawImage(this.painter.getGame().getHero().getImg()/*this.currentImage*/, x, y, 75/*getWidth()*/, 75/*getHeight()*/, 0, 0,
-				getWidth(), getHeight(), null);
+		//int x = this.painter.getGame().getHero().getX();
+		//int y = this.painter.getGame().getHero().getY();
+		//g.drawImage(this.painter.getGame().getHero().getImg()/*this.currentImage*/, x, y, 75/*getWidth()*/, 75/*getHeight()*/, 0, 0,
+				//getWidth(), getHeight(), null);
+		Labyrinth m = this.painter.getGame().getLaby();
+		Hero p = this.painter.getGame().getHero();
+		
+		for(int y = 0; y < 14; y++){
+			for(int x = 0; x < 14; x ++){
+				//*** Condition fin partie
+				if(m.getMap(x, y).equals("f")){
+					g.drawImage(m.getFinish(), x * 32, y * 32, null);
+				}
+					//********fin
+			
+				if(m.getMap(x, y).equals("g")){
+					g.drawImage(m.getGrass(), x*32, y*32,m.getGrass().getWidth(null)/10, m.getGrass().getHeight(null)/10, null);
+				}
+				if(m.getMap(x, y).equals("w")){
+					g.drawImage(m.getWall(), x*32, y*32, m.getGrass().getWidth(null)/10, m.getGrass().getHeight(null)/10, null);
+				}
+			}
+		}
+		//****MessageFin
+		//g.drawString(Message, 50, 50);
+		
+		g.drawImage(p.getImg(), p.getX(), p.getY(), null);
+		
 		this.repaint();
 	}
 	

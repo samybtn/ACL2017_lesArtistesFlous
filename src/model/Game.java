@@ -18,6 +18,7 @@ public class Game {
 	public void setHero(Hero hero) {this.hero = hero;}
 	public Monster getMonster() {return monster;}
 	public void setMonster(Monster monster) {this.monster = monster;}
+	private Labyrinth laby;
 
 
 	/**
@@ -25,9 +26,10 @@ public class Game {
 	 */
 
 
-	public Game() {
+	public Game(Labyrinth l) {
 		this.setHero(new Hero(this));
 		this.setMonster(new Monster(this));
+		this.setLaby(l);
 	}
 
 	/**
@@ -64,4 +66,18 @@ public class Game {
 		}
 		return false;
 	}
+	/**
+	 * @return the laby
+	 */
+	public Labyrinth getLaby() {
+		return laby;
+	}
+	/**
+	 * @param laby the laby to set
+	 */
+	public void setLaby(Labyrinth laby) {
+		this.laby = laby;
+	}
+	
+	
 }

@@ -11,14 +11,14 @@ import javax.swing.ImageIcon;
  * @author bentoune2u
  *
  */
-public class Hero extends Charater{
+public class Hero extends Character {
 
 	private Image img;
 	private ImageIcon icon_hero;
 	
 	public Hero(Game game){
 		super(game);
-		this.icon_hero = new ImageIcon(getClass().getResource("/image/hero.png"));
+		this.icon_hero = new ImageIcon(getClass().getResource("/image/pacman.png"));
 		this.img = this.icon_hero.getImage();
 	}
 
