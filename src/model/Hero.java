@@ -24,12 +24,22 @@ public class Hero extends Character {
 		this.y = 1; 
 	}
 
-	protected boolean isBlocked(){
-		//make Walls tests
-		return false;
 
+
+	public boolean deplacement(int x, int y){
+		x = (x/(Math.max(Math.abs(x),1)));
+		y = (y/(Math.max(Math.abs(y),1)));
+		if (Math.abs(y)+Math.abs(x)==0)return false;
+		if (this.game.isOut(this.getX()+x,this.getY()+y)){
+			return false ;}
+		if (this.game.isBlocked(this.getX()+x,this.getY()+y)){ return false ;}
+		this.setX(this.getX()+x);
+		this.setY(this.getY()+y);
+				this.game.getMonster().bouger();
+
+		return true;
 	}
-
+	
 
     
 	//** SETTER AND GETTER

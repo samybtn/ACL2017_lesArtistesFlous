@@ -28,7 +28,7 @@ public class Game {
 
 	public Game(Labyrinth l) {
 		this.setHero(new Hero(this));
-		this.setMonster(new Monster(this));
+		this.setMonster(new MonsterBishop(this));
 		this.setLaby(l);
 	}
 
