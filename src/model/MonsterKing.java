@@ -33,10 +33,31 @@ public class MonsterKing extends Monster{
 		for(int j = 0; j < 14; j++){for(int i = 0; i < 13; i ++){if(cases[i][j]!=null && cases[i+1][j]!=null) cases[i][j].add(cases[i+1][j]);}}
 		for(int j = 0; j < 14; j++){for(int i = 1; i < 14; i ++){if(cases[i][j]!=null && cases[i-1][j]!=null) cases[i][j].add(cases[i-1][j]);}}
 		
-		cases[departx][departy].run(0,cases[departx][departy]);		
-		int coordonnees[] = cases[this.game.getHero().getX()][this.game.getHero().getY()].retrace(null, cases[departx][departy]);
-		this.setX(coordonnees[0]);
-		this.setY(coordonnees[1]);
+		cases[departx][departy].run(0,cases[departx][departy]);	
+		int arriveex=this.game.getHero().getX();
+		int arriveey=this.game.getHero().getY();
+		int coordonnees[] = cases[arriveex][arriveey].retrace(null, cases[departx][departy]);
+		
+
+		boolean gotcha=false;
+		
+		if(coordonnees==null || (arriveex==departx && arriveey==departy)){gotcha=true;}
+		else {
+			//if(coordonnees[3]==1){this.init();}
+			//else{
+				this.setX(coordonnees[0]);
+				this.setY(coordonnees[1]);
+		// 	}
+		}
+		if(this.game.getHero().getX()==this.getX() && this.game.getHero().getY()==this.getY()){gotcha=true;}
+		
+		
+		
+		if(gotcha){
+			this.init();
+	
+		}
+		
 		
 	}
 	

@@ -56,9 +56,10 @@ public class Case {
 	}
 	
 	public int[] retrace(int[] tab, Case origine){
-		int coordonnees[] = new int[2];
+		int coordonnees[] = new int[3];
 		coordonnees[0]=this.x;
 		coordonnees[1]=this.y;
+		coordonnees[2]=this.getDist();
 		if(this.getX()==origine.getX() && this.getY()==origine.getY()) return tab;
 		else return from.retrace(coordonnees, origine);
 	}

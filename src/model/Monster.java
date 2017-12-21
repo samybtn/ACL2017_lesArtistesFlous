@@ -33,8 +33,8 @@ public abstract class Monster extends Character {
 		int b=1;
 		while (go){
 			go=false;
-			a=((int) (Math.round(Math.random()*14)));
-			b=((int) (Math.round(Math.random()*14)));
+			a=((int) (Math.round(Math.random()*13)));
+			b=((int) (Math.round(Math.random()*13)));
 			if(this.game.isOut(a,b)) go=true ;
 			else if (this.game.isBlocked(a, b) || ( this.game.getHero().getX()==a && this.game.getHero().getY()==b)){go=true;}
 
