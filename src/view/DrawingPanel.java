@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import model.Hero;
 import model.Labyrinth;
+import model.Monster;
 
 public class DrawingPanel extends JPanel {
 
@@ -104,7 +105,8 @@ public class DrawingPanel extends JPanel {
 				//getWidth(), getHeight(), null);
 		Labyrinth m = this.painter.getGame().getLaby();
 		Hero p = this.painter.getGame().getHero();
-		
+		Monster monstr = this.painter.getGame().getMonster();
+
 		//System.out.println(painter.getHeight()+"  "+painter.getWidth());
 		
 		
@@ -132,7 +134,8 @@ public class DrawingPanel extends JPanel {
 		//g.drawString(Message, 50, 50);
 		
 		g.drawImage(p.getImg(), p.getX()*factorx, p.getY()*factory,factorx,factory, null);
-		
+		g.drawImage(monstr.getImg(), monstr.getX()*factorx, monstr.getY()*factory,factorx,factory, null);
+
 		this.repaint();
 	}
 	
