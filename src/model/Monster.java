@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
  */
 public abstract class Monster extends Character {
 
+	protected int degat;
 	protected Image img;
 	protected ImageIcon icon_hero;
 	
@@ -26,15 +27,19 @@ public abstract class Monster extends Character {
 	
 	public abstract void bouger();
 	
-
+	public void infliger_degat(int degat){
+		this.game.getHero().setLife(this.game.getHero().getLife()-degat);
+		if(this.game.getHero().getLife()<=0){this.game.getHero().is_dying();}
+	}
+	
 	public void init(){
 		boolean go=true;
 		int a=1;
 		int b=1;
 		while (go){
 			go=false;
-			a=((int) (Math.round(Math.random()*14)));
-			b=((int) (Math.round(Math.random()*14)));
+			a=((int) (Math.round(Math.random()*13)));
+			b=((int) (Math.round(Math.random()*13)));
 			if(this.game.isOut(a,b)) go=true ;
 			else if (this.game.isBlocked(a, b) || ( this.game.getHero().getX()==a && this.game.getHero().getY()==b)){go=true;}
 

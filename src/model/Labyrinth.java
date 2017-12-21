@@ -13,11 +13,8 @@ public class Labyrinth {
 	public static  final int taille = 14;
 	private String Map[] = new String[taille];
 	private Image grass,finish, wall;
-	
-	private int level;
 
-	public Labyrinth(int n) {
-		this.level = n;
+	public Labyrinth() {
 		
 		ImageIcon img = new ImageIcon(getClass().getResource("/image/grass.png"));
 		grass = img.getImage();
@@ -39,14 +36,6 @@ public class Labyrinth {
 	public Image getFinish(){return finish;}
 	
 	
-	
-		/**
-	 * @return the level
-	 */
-	public int getLevel() {
-		return level;
-	}
-
 		public String getMap(int x, int y){
 			String index = Map[y].substring(x, x+1);
 			return index;	
@@ -56,7 +45,7 @@ public class Labyrinth {
 		
 		try{
 			//System.out.println("****");
-		m = new Scanner(new File(getClass().getResource("/image/map"+this.level+".txt").getFile()));
+		m = new Scanner(new File(getClass().getResource("/image/map.txt").getFile()));
 		
 		}catch(Exception e){
 			System.out.println("error loading map");

@@ -20,8 +20,8 @@ public class View {
 	 * la taille des cases
 	 */
 	public static final int SCALE=3;
-	protected static final int WIDTH = 1000;
-	protected static final int HEIGHT = 1000;
+	protected static final int WIDTH = 700;
+	protected static final int HEIGHT = 700;
   private Game game;
 
   /**

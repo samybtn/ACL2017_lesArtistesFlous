@@ -156,7 +156,10 @@ public class DrawingPanel extends JPanel {
 			
 			g.drawString(this.victory, Labyrinth.getTaille()/2*factorx-2*factorx, Labyrinth.getTaille()/2*factory);
 		}
-		
+		g.setFont(new Font("Serif", Font.ITALIC, 30));
+		g.setColor(Color.YELLOW);
+		String st = "Points de vie : "+Integer.toString(p.getLife());
+		g.drawString(st,Labyrinth.getTaille()*factory-5*factorx,factory);
 		
 		this.repaint();
 	}
