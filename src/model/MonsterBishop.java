@@ -13,27 +13,23 @@ public class MonsterBishop extends Monster{
 	}
 
 	
+	
+	
+	
 	public void bouger(){
-
 		boolean did=true;
 		while(did){
 			did=false;
-
 			int x=((int) (Math.round(Math.random())*2)-1);
 			int y=((int) (Math.round(Math.random())*2)-1);
-			System.out.println("Bishop : "+x+"    "+y);
-
-			
 			if ((Math.abs(y)+Math.abs(x)==0)) did=true;
 			if (this.game.isBlocked(this.getX()+x,this.getY()+y)) did=true;
 			if((this.game.isOut(this.getX()+x,this.getY()+y))) did=true ;
-				
 			if(did==false) {
 				this.setX(this.getX()+x);
 				this.setY(this.getY()+y);
 			}
 			}
-
 	}
 	
 
