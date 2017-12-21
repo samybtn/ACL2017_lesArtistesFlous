@@ -14,8 +14,16 @@ import javax.swing.ImageIcon;
  */
 public class Hero extends Character {
 
+	public int getLife() {
+		return life;
+	}
+	public void setLife(int life) {
+		this.life = life;
+	}
+
 	private Image img;
 	private ImageIcon icon_hero;
+	protected int life=5;
 	
 	public Hero(Game game){
 		super(game);
@@ -59,14 +67,17 @@ public class Hero extends Character {
 		int y = this.getY();
 		boolean res = false;
 		if (this.game.getLaby().getMap(x, y).equals("f")) {
-			System.out.println("victory");
+			//System.out.println("victory");
+			this.game.reboot();
 			//victory
 			res = true;
 		}
 		return res;
 	}
 
-
+	public void is_dying(){
+		this.game.reboot();
+	}
 
 	public void print(){
 		System.out.println( "("+this.getX()+":"+this.getY()+")");

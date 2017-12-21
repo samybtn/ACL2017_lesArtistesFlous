@@ -4,6 +4,8 @@ import javax.swing.ImageIcon;
 
 public class MonsterKing extends Monster{
 
+	protected int degat=2;
+	
 	public MonsterKing(Game game) {
 		super(game);
 		this.icon_hero = new ImageIcon(getClass().getResource("/image/king.png"));
@@ -54,7 +56,9 @@ public class MonsterKing extends Monster{
 		
 		
 		if(gotcha){
+			this.infliger_degat(this.degat);
 			this.init();
+			
 	
 		}
 		

@@ -107,5 +107,13 @@ public class Game {
 		this.laby = laby;
 	}
 	
+	public void reboot(){
+		this.hero.setX(1);
+		this.hero.setY(1);
+		for (int i=0; i<this.monster.size();i++) {
+			this.monster.get(i).init();
+		}
+		this.hero.setLife(5);
+	}
 	
 }

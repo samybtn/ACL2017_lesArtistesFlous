@@ -4,6 +4,8 @@ import javax.swing.ImageIcon;
 
 public class MonsterBishop extends Monster{
 
+	protected int degat=1;
+	
 	public MonsterBishop(Game game) {
 		super(game);
 		this.icon_hero = new ImageIcon(getClass().getResource("/image/bishop.png"));
@@ -29,7 +31,9 @@ public class MonsterBishop extends Monster{
 				this.setX(this.getX()+x);
 				this.setY(this.getY()+y);
 			}
-			}
+		}
+		if(this.game.getHero().getX()==this.getX() && this.game.getHero().getY()==this.getY()){infliger_degat(this.degat);}
+
 	}
 	
 
