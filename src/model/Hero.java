@@ -59,7 +59,7 @@ public class Hero extends Character {
 		int y = this.getY();
 		boolean res = false;
 		if (this.game.getLaby().getMap(x, y).equals("f")) {
-			System.out.println("victory");
+			
 			//victory
 			res = true;
 		}

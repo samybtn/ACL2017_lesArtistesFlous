@@ -125,7 +125,7 @@ public class DrawingPanel extends JPanel {
 			for(int x = 0; x < 14; x ++){
 				//*** Condition fin partie
 				if(m.getMap(x, y).equals("f")){
-					g.drawImage(m.getFinish(), x * factorx, y * factory, null);
+					g.drawImage(m.getFinish(), x * factorx, y * factory, factorx, factory, null);
 				}
 					//********fin
 			

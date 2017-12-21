@@ -21,7 +21,7 @@ public class Labyrinth {
 		img = new ImageIcon(getClass().getResource("/image/walls.png"));
 		wall = img.getImage();
 		//***** Fin
-		img = new ImageIcon(getClass().getResource("/image/finPatie1.png"));
+		img = new ImageIcon(getClass().getResource("/image/malvoisie-tresor-antan.png"));
 		finish = img.getImage();
 		
 		
