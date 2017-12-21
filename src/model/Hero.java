@@ -4,6 +4,7 @@
 package model;
 
 import java.awt.Image;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -30,12 +31,16 @@ public class Hero extends Character {
 		x = (x/(Math.max(Math.abs(x),1)));
 		y = (y/(Math.max(Math.abs(y),1)));
 		if (Math.abs(y)+Math.abs(x)==0)return false;
-		if (this.game.isOut(this.getX()+x,this.getY()+y)){
-			return false ;}
+		if (this.game.isOut(this.getX()+x,this.getY()+y)){return false ;}
 		if (this.game.isBlocked(this.getX()+x,this.getY()+y)){ return false ;}
 		this.setX(this.getX()+x);
 		this.setY(this.getY()+y);
-				this.game.getMonster().bouger();
+		
+		List monstr = this.game.getMonster();
+		for(int i = 0; i < monstr.size(); i++){
+			Monster monstreI=(Monster) monstr.get(i);
+			monstreI.bouger();
+		}
 
 		return true;
 	}

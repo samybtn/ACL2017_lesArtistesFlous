@@ -2,11 +2,11 @@ package model;
 
 import javax.swing.ImageIcon;
 
-public class MonsterBishop extends Monster{
+public class MonsterKing extends Monster{
 
-	public MonsterBishop(Game game) {
+	public MonsterKing(Game game) {
 		super(game);
-		this.icon_hero = new ImageIcon(getClass().getResource("/image/bishop.png"));
+		this.icon_hero = new ImageIcon(getClass().getResource("/image/king.png"));
 		this.img = this.icon_hero.getImage();
 		init();
 		// TODO Auto-generated constructor stub
@@ -19,8 +19,8 @@ public class MonsterBishop extends Monster{
 		while(did){
 			did=false;
 
-			int x=((int) (Math.round(Math.random())*2)-1);
-			int y=((int) (Math.round(Math.random())*2)-1);
+			int x=((int) (Math.round(Math.random()*2))-1);
+			int y=((int) (Math.round(Math.random()*2))-1);
 			System.out.println("Bishop : "+x+"    "+y);
 
 			

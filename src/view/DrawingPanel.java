@@ -10,6 +10,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.PaintContext;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -105,7 +108,7 @@ public class DrawingPanel extends JPanel {
 				//getWidth(), getHeight(), null);
 		Labyrinth m = this.painter.getGame().getLaby();
 		Hero p = this.painter.getGame().getHero();
-		Monster monstr = this.painter.getGame().getMonster();
+		ArrayList<Monster> monstr = this.painter.getGame().getMonster();
 
 		//System.out.println(painter.getHeight()+"  "+painter.getWidth());
 		
@@ -134,8 +137,13 @@ public class DrawingPanel extends JPanel {
 		//g.drawString(Message, 50, 50);
 		
 		g.drawImage(p.getImg(), p.getX()*factorx, p.getY()*factory,factorx,factory, null);
-		g.drawImage(monstr.getImg(), monstr.getX()*factorx, monstr.getY()*factory,factorx,factory, null);
-
+		
+		for(int i = 0; i < monstr.size(); i++){
+			Monster monstreI=monstr.get(i);
+			g.drawImage(monstreI.getImg(), monstreI.getX()*factorx, monstreI.getY()*factory,factorx,factory, null);
+		}
+		
+		
 		this.repaint();
 	}
 	

@@ -3,6 +3,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 import controller.Cmd;
 
 /**
@@ -13,11 +15,11 @@ public class Game {
 
 	//Le personnage utilise par le joueur
 	private Hero hero;
-	private Monster monster;
-	public Hero getHero() {return hero;}
+    public ArrayList<Monster> monster = new ArrayList<Monster>();
+    public Hero getHero() {return hero;}
 	public void setHero(Hero hero) {this.hero = hero;}
-	public Monster getMonster() {return monster;}
-	public void setMonster(Monster monster) {this.monster = monster;}
+	public ArrayList<Monster> getMonster() {return monster;}
+	//public void setMonster(Monster monster) {this.monster = monster;}
 	private Labyrinth laby;
 
 
@@ -27,9 +29,12 @@ public class Game {
 
 
 	public Game(Labyrinth l) {
-		this.setHero(new Hero(this));
-		this.setMonster(new MonsterBishop(this));
 		this.setLaby(l);
+		this.setHero(new Hero(this));
+	    monster.add(new MonsterBishop(this));
+	    monster.add(new MonsterKing(this));
+		
+
 	}
 
 	/**
