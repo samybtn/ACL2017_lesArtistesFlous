@@ -51,3 +51,18 @@ Gérer la version Graphique :
 * Difficile : vision réduite.
   * Introduire un Timer (en fct de la difficulté)
   * Gérer les monstres de façon plus ou moins efficace (en fonction de la difficulté / MCTS)
+
+###### But de Jeu
+
+	Le but de jeu est d'aller jusqu'à la sortie,
+	le héro doit franchir des obstacles pour y arriver.
+	Pour déplacer le héro il faut  utiliser les touches suivantes:
+		S: Déplacer vers le bas.
+		D: Déplacer vers la droite.
+		Q: Déplacer vers la gauche.
+		Z: Déplacer vers le haut.
+	S'il est en contact avec un monstre le hero perd X point(s) de vie (cela dépend du monstre rencontré).
+	Nous avons utilisé un algorithme de type Dijkstra pour trouver le plus court chemin entre les monstres (du type MonsterKing) afin de determiner leurs déplacements.
+	Dans le cas cas où le hero perd tout ses points de vie ; fin de la partie, le jeu recommence.
+	Dans le cas où le héro atteint la case qui contient le tresor, il gagne la manche, le jeu recommence également.
+	
