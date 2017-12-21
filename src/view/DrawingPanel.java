@@ -4,7 +4,9 @@ package view;
  * @author Horatiu Cirstea, Vincent Thomas
  *
  */
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -38,6 +40,8 @@ public class DrawingPanel extends JPanel {
 	private BufferedImage nextImage;
 
 	
+	private String victory;
+	
 	/**
 	 * image en cours est l'image entrain d'etre affichee
 	 */
@@ -64,7 +68,7 @@ public class DrawingPanel extends JPanel {
 		this.height = painter.getHeight();
 		this.setPreferredSize(new Dimension(this.width, this.height));
 		this.painter=painter;
-
+		this.victory = "VICTORY";
 		// cree l'image buffer et son graphics
 		this.nextImage = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
@@ -141,6 +145,16 @@ public class DrawingPanel extends JPanel {
 		for(int i = 0; i < monstr.size(); i++){
 			Monster monstreI=monstr.get(i);
 			g.drawImage(monstreI.getImg(), monstreI.getX()*factorx, monstreI.getY()*factory,factorx,factory, null);
+		}
+		
+		if (p.victory()) {
+			//Font f = new Font("Serif", Font.PLAIN, 36);
+			//this.painter;
+			
+			g.setFont(new Font("Serif", Font.ITALIC, 60));
+			g.setColor(Color.YELLOW);
+			
+			g.drawString(this.victory, Labyrinth.getTaille()/2*factorx-2*factorx, Labyrinth.getTaille()/2*factory);
 		}
 		
 		

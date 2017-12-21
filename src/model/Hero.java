@@ -54,7 +54,18 @@ public class Hero extends Character {
 	public ImageIcon getIcon_hero() {return icon_hero;}
 	public Image getImg() {return img;}
 
-	
+	public boolean  victory() {
+		int x = this.getX();
+		int y = this.getY();
+		boolean res = false;
+		if (this.game.getLaby().getMap(x, y).equals("f")) {
+			System.out.println("victory");
+			//victory
+			res = true;
+		}
+		return res;
+	}
+
 
 
 	public void print(){
