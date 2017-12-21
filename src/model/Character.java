@@ -28,8 +28,8 @@ public abstract class Character{
 	protected abstract boolean isBlocked();
 
 	public boolean deplacement(int x, int y){
-		x = (x/(Math.max(Math.abs(x),1)))*2;
-		y = (y/(Math.max(Math.abs(y),1)))*2;
+		x = (x/(Math.max(Math.abs(x),1)));
+		y = (y/(Math.max(Math.abs(y),1)));
 		if (Math.abs(y)+Math.abs(x)==0)return false;
 		if (this.game.isOut(this.getX()+x,this.getY()+y)){ return false ;}
 
