@@ -36,7 +36,8 @@ public abstract class Character{
 		if (this.game.isBlocked(this.getX()+x,this.getY()+y)){ return false ;}
 		this.setX(this.getX()+x);
 		this.setY(this.getY()+y);
-		
+				this.game.getMonster().bouger();
+
 		return true;
 	}
 
