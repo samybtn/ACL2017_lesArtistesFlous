@@ -61,7 +61,9 @@ public class Hero extends Character {
 		if (this.game.getLaby().getMap(x, y).equals("f")) {
 			
 			//victory
+			
 			res = true;
+			this.game.nextLevel();
 		}
 		return res;
 	}

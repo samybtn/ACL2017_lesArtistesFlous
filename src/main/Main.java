@@ -37,7 +37,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
 		// creation du jeu particulier et de son afficheur
-		Game game = new Game(new Labyrinth());
+		Game game = new Game(new Labyrinth(1));
 		View painter = new View(game);
 		Controller controller = new Controller(game, painter);
 
